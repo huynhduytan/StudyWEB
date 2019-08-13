@@ -132,4 +132,4 @@ EOT;
     // print_r($sqlUpdate);die;
     $resultUpdate = mysqli_query($conn, $sqlUpdate);
 }
-?> Q1  
+?> 
