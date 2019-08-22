@@ -75,5 +75,6 @@ if(isset($_POST['btnLuu'])) {
         $result = mysqli_query($conn, $sqlInsert);
     }
 }
+<a href="?page=loaisanpham_danhsach">Danh sách  sản phẩm</a></li>
 ?>
 
