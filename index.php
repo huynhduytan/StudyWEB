@@ -35,6 +35,7 @@
                 <ul class="list-group">
                     <li class="list-group-item"><a href="?page=loaisanpham_danhsach">Danh sách Loại sản phẩm</a></li>
                     <li class="list-group-item"><a href="?page=sanpham_danhsach">Danh sách Sản phẩm</a></li>
+                    <li class="list-group-item"><a href="?page=hinhsanpham_danhsach">Hinh Sản phẩm</a></li>
                 </ul>
             </div><!-- /End sidebar -->
             <!-- Content -->
@@ -48,7 +49,9 @@
                     include('sanpham/danhsach.php');
                 } else if($page == 'sanpham_them') {
                     include('sanpham/them.php');
-                }
+                }else if($page == 'hinhsanpham_danhsach') {
+                    include('hinhsanpham/danhsach.php');
+                }                
                 ?>
             </div><!-- /End content -->
         </div><!-- /End main content -->

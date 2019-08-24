@@ -28,7 +28,7 @@ while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
 // var_dump($data);die;
 ?>
 
-<a href="/web02/index.php?page=sanpham_them" class="btn btn-outline-primary"><i class="fa fa-plus-circle" aria-hidden="true"></i> Thêm Sản phẩm</a>
+<a href="/StudyWEB/index.php?page=sanpham_them" class="btn btn-outline-primary"><i class="fa fa-plus-circle" aria-hidden="true"></i> Thêm Sản phẩm</a>
 <div class="table-responsive-sm">
     <table class="table table-bordered table-hover table-sm">
         <thead>
