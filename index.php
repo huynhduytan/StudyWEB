@@ -1,3 +1,6 @@
+<?php
+require_once __DIR__ . '/dbconnect.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,6 +39,13 @@
                     <li class="list-group-item"><a href="?page=loaisanpham_danhsach">Danh sách Loại sản phẩm</a></li>
                     <li class="list-group-item"><a href="?page=sanpham_danhsach">Danh sách Sản phẩm</a></li>
                     <li class="list-group-item"><a href="?page=hinhsanpham_danhsach">Hinh Sản phẩm</a></li>
+                    <?php if(isset($_SESSION['username']) && !empty($_SESSION['username'])) : ?>
+                        <li class="list-group-item"><a href="/web02/pages/dangxuat.php">Đăng xuất</a></li>
+                    <?php else : ?>
+                        <li class="list-group-item"><a href="/web02/pages/dangnhap.php">Đăng nhập</a></li>
+                    <?php endif ?>
+
+                    
                 </ul>
             </div><!-- /End sidebar -->
             <!-- Content -->

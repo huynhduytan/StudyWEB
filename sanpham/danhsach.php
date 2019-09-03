@@ -1,5 +1,14 @@
 <?php
 require_once __DIR__ . '/../dbconnect.php';
+
+//kiểm tra session
+ if(isset($_SESSION['username']) && !empty($_SESSION['username'])) {
+     echo'Đã đăng nhập!';
+ }else {
+ echo 'Bạn chưa đăng nhập. Vui lòng <a href="http://localhost:1000/StudyWEB/pages/dangnhap.php">click vào đây</a> để đến trang Đăng nhập';
+ die;
+}
+
 // Here DOCS
 // End of Text
 $sql = <<<EOT
