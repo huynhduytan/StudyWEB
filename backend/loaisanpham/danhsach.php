@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . "/../../dbconnect.php';
+require_once __DIR__ . '/../../dbconnect.php';
 $sql = "SELECT * FROM loaisanpham;";
 $result = mysqli_query($conn, $sql);
 $data = [];
@@ -38,15 +38,9 @@ while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
         <td><?= $row['lsp_ten']; ?></td>
         <td><?php echo $row['lsp_mota']; ?></td>
         <td>
-          <button class="btn btn-primary btn-edit " data-sp-ma="<?= $row['sp_ma']?>">          
-                <i class="fa fa-trash" aria-hidden="true"></i>&nbsp;Edit
-            </button>
-            <button class="btn btn-danger btn-delete " data-sp-ma="<?= $row['sp_ma']?>">
-            <i class="fa fa-trash" aria-hidden="true"></i>&nbsp;Delete<i class="fa fa-trash" aria-hidden="true"></i>&nbsp;Delete
-            </button>
+            <a href="/studyWED/sua.php">Sửa</a>
         </td>
     </tr>
-    <?php $bienDem++; ?>
-
     <?php endforeach; ?>
 </table>
+© 2019 GitHub, Inc.
