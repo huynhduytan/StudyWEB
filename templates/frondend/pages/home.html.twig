@@ -53,7 +53,8 @@ Trang chủ
         <span class="sr-only">Next</span>
     </a>
 </div>
-<!-- end slide -->
+<!-- End Carousel - Slider-->
+
 <!-- Tính năng Marketing -->
 <div class="container marketing">
     <!-- Three columns of text below the carousel -->
@@ -93,46 +94,44 @@ Trang chủ
             <p class="lead">Hệ thống theo dõi đơn hàng chi tiết, thông tin mọi lúc mọi nơi.</p>
         </div>
         <div class="col-md-5 order-md-1">
-            <img src="/web02/public/img/marketing-2.png">
+            <img src="/StudyWEB/public/img/marketing-2.png">
         </div>
     </div>
 </div>
 <!-- End Tính năng Marketing -->
-<!-- Danh sach san pham -->
-<section class="jumbotron text-center"> 
+
+<!-- Danh sách sản phẩm -->
+<section class="jumbotron text-center">
     <div class="container">
-        <h1></h1>
-        <p></p>
+        <h1 class="jumbotron-heading">Danh sách Sản phẩm</h1>
+        <p class="lead text-muted">Các sản phẩm với chất lượng, uy tín, cam kết từ nhà Sản xuất, phân phối và bảo hành
+            chính hãng.</p>
     </div>
 </section>
+
 <div class="danhsachsanpham">
     <div class="container">
-        {% for sanpham in danhsachsanpham %}
-            <div class="row">
-                    <div class="col-md-4">
-                        {%if %}
-                            <div class="card" style="width: 18rem;">
-                                    <img src="..." class="card-img-top" alt="...">
-                                    <div class="card-body">
-                                      <h5 class="card-title">Card title</h5>
-                                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                      <a href="#" class="btn btn-primary">Go somewhere</a>
-                                    </div>
-                                  </div>
+        <div class="row">
+            {% for sanpham in danhsachsanpham %}
+            <div class="col-md-4">
+                <div class="card" style="width: 18rem;">
+                    {% if sanpham.hsp_tentaptin %}
+                    <img src="/StudyWEB/public/uploads/{{ sanpham.hsp_tentaptin }}" class="card-img-top" alt="...">
+                    {% else %}
+                    <img src="/StudyWEB/public/img/no-image.png" class="card-img-top" alt="...">
+                    {% endif %}
+
+                    <div class="card-body">
+                        <h5 class="card-title">{{ sanpham.sp_ten }}</h5>
+                        <p class="card-text">{{ sanpham.sp_mota_ngan }}</p>
+                        <a href="/StudyWEB/frontend/sanpham/chitiet.php?sp_ma={{ sanpham.sp_ma }}" class="btn btn-primary">Mua hàng</a>
                     </div>
                 </div>
-            
+            </div>
+            {% endfor %}
+        </div>
     </div>
-   
 </div>
 
-
-
-
 {% endblock %}
 {# End Nội dung trong block content #}
-
-
-{% endblock %}
-{# End Nội dung trong block content #}
-© 2019 GitHub, Inc.
