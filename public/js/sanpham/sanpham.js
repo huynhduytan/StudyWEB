@@ -22,15 +22,8 @@ $(document).ready(function () {
                 )
                 
                 // Redirect (điều hướng)
-                window.location.href = "/web02/sanpham/xoa.php?sp_ma=" + sp_ma;
+                window.location.href = "/StudyWEB/sanpham/xoa.php?sp_ma=" + sp_ma;
             }
         })
 
     });
-
-
-
-
-
-
-});
