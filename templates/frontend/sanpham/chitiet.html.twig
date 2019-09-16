@@ -233,7 +233,7 @@ Sản phẩm {{ sanpham.sp_ten }}
                         <div class="preview-pic tab-content">
                             {% for hinhsanpham in sanpham.danhsachhinhanh %}
                             <div class="tab-pane {{ (hinhsanpham == hinhsanphamdautien) ? 'active' : '' }}" id="pic-{{ loop.index }}">
-                                <img src="/web02/public/uploads/{{ hinhsanpham.hsp_tentaptin }}" />
+                                <img src="/StudyWEB/public/uploads/{{ hinhsanpham.hsp_tentaptin }}" />
                             </div>
                             {% endfor %}
                          </div>
@@ -241,7 +241,7 @@ Sản phẩm {{ sanpham.sp_ten }}
                                 {% for hinhsanpham in sanpham.danhsachhinhanh %}
                                 <li class="{{ (hinhsanpham == hinhsanphamdautien) ? 'active' : '' }}">
                                     <a data-target="#pic-{{ loop.index }}" data-toggle="tab">
-                                        <img src="/web02/public/uploads/{{ hinhsanpham.hsp_tentaptin }}" />
+                                        <img src="/StudyWEB/public/uploads/{{ hinhsanpham.hsp_tentaptin }}" />
                                     </a>
                                 </li>
                                 {% endfor %}
@@ -250,13 +250,13 @@ Sản phẩm {{ sanpham.sp_ten }}
                             <!-- Không có hình sản phẩm nào => lấy ảnh mặc định -->
                             <div class="preview-pic tab-content">
                                 <div class="tab-pane active" id="pic-1">
-                                    <img src="/web02/public/shared/img/default-image_600.png" />
+                                    <img src="/StudyWEB/public/shared/img/default-image_600.png" />
                                 </div>
                             </div>
                             <ul class="preview-thumbnail nav nav-tabs">
                                 <li class="active">
                                     <a data-target="#pic-1" data-toggle="tab">
-                                        <img src="/web02/public/shared/img/default-image_600.png" />
+                                        <img src="/StudyWEB/public/shared/img/default-image_600.png" />
                                     </a>
                                 </li>
                             </ul>
