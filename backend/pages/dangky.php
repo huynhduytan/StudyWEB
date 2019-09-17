@@ -112,7 +112,7 @@ if(isset($_POST['btnLuu'])) {
             <tr>
                 <td>
                     Xin chào $kh_ten, cám ơn bạn đã đăng ký Hệ thống của chúng tôi. Vui lòng click vào liên kết sau để kích hoạt tài khoản!
-                    <a href="http://localhost:1000/StudyWEB/pages/kichhoattaikhoan.php?kh_tendangnhap=$kh_tendangnhap&kh_makichhoat=$kh_makichhoat">Kích hoạt tài khoản</a>
+                    <a href="http://localhost:1000/StudyWEB/backend/pages/kichhoattaikhoan.php?kh_tendangnhap=$kh_tendangnhap&kh_makichhoat=$kh_makichhoat">Kích hoạt tài khoản</a>
                 </td>
             </tr>
             <tr>

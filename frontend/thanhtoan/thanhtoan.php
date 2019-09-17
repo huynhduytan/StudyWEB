@@ -4,6 +4,39 @@ require_once __DIR__ . '/../../bootstrap.php';
 // Truy vấn database để lấy danh sách
 // 1. Include file cấu hình kết nối đến database, khởi tạo kết nối $conn
 include_once(__DIR__ . '/../../dbconnect.php');
+if (isset($_POST['btnDatHang'])) {
+    // INSERT đơn hàng
+    // Lấy dữ liệu từ POST
+    $kh_tendangnhap = $_POST['kh_tendangnhap'];
+    $httt_ma = $_POST['httt_ma'];
+    $dh_ngaylap = date('Y-m-d H:m:s'); // lấy ngày hiện tại
+    $dh_trangthaithanhtoan = 0; // 0: Đơn hàng chưa xử lý
+    // Insert Đơn hàng
+    // Câu lệnh INSERT
+    $sqlDonHang = "INSERT INTO `dondathang` (dh_ngaylap, dh_ngaygiao, dh_noigiao, dh_trangthaithanhtoan, httt_ma, kh_tendangnhap) VALUES ('$dh_ngaylap', null, null, $dh_trangthaithanhtoan, $httt_ma, '$kh_tendangnhap');";
+    // dd($sqlDonHang);
+    // Thực thi INSERT
+    mysqli_query($conn, $sqlDonHang);
+    // Lấy ID đơn hàng vừa được lưu
+    $last_donhang_id = mysqli_insert_id($conn);
+    // INSERT danh sách các sản phẩm bạn mua
+    // Duyệt vòng lặp sản phẩm trong giỏ hàng để thực thi câu lệnh INSERT vào table `sanpham_donhang`
+    foreach ($_POST['sanphamgiohang'] as $sanpham) {
+        $sp_ma = $sanpham['sp_ma'];
+        $gia = $sanpham['gia'];
+        $soluong = $sanpham['soluong'];
+        // Insert Sản phẩm Đơn hàng
+        // Câu lệnh INSERT
+        $sqlSanPhamDonHang = "INSERT INTO `sanpham_dondathang` (sp_ma, dh_ma, sp_dh_soluong, sp_dh_dongia) VALUES ($sp_ma, $last_donhang_id, $soluong, $gia);";
+        // Thực thi INSERT
+        mysqli_query($conn, $sqlSanPhamDonHang);
+    }
+    // Thanh toán thành công, xóa Giỏ hàng trong SESSION
+    // lưu dữ liệu giỏ hàng vào session
+    $_SESSION['giohangdata'] = [];
+    
+    echo $twig->render('frontend/thanhtoan/thanhtoan-finish.html.twig');
+} else {
 // Nếu trong SESSION có giá trị của key 'username' <-> người dùng đã đăng nhập thành công
 // Nếu chưa đăng nhập thì chuyển hướng về trang đăng nhập
 if (!isset($_SESSION['username'])) {
