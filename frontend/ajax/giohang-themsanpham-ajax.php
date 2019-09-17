@@ -36,4 +36,4 @@ if (isset($_SESSION['giohangdata'])) {
     // lưu dữ liệu giỏ hàng vào session
     $_SESSION['giohangdata'] = $data;
 }
-echo json_encode($_SESSION['giohangdata']);
+echo json_encode($_SESSION['giohangdata']); 
