@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__ . '/../dbconnect.php';
+$page = isset($_GET['page']) ? $_GET['page'] : 'sanpham_danhsach';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,6 +15,10 @@ require_once __DIR__ . '/../dbconnect.php';
 
     <!-- Liên kết thêm FONT AWESOME -->
     <link rel="stylesheet" href="./../public/vendor/font-awesome-4.7.0/css/font-awesome.min.css">
+
+     <?php if($page == 'dashboard') : ?>
+        <link rel="stylesheet" href="./../public/vendor/Chart.js/Chart.min.css">
+    <?php endif ?>
 
     <style>
     
@@ -39,10 +44,11 @@ require_once __DIR__ . '/../dbconnect.php';
                     <li class="list-group-item"><a href="?page=loaisanpham_danhsach">Danh sách Loại sản phẩm</a></li>
                     <li class="list-group-item"><a href="?page=sanpham_danhsach">Danh sách Sản phẩm</a></li>
                     <li class="list-group-item"><a href="?page=hinhsanpham_danhsach">Hinh Sản phẩm</a></li>
+                    <li class="list-group-item"><a href="?page=dashboard">Dashboard</a></li>
                     <?php if(isset($_SESSION['username']) && !empty($_SESSION['username'])) : ?>
-                        <li class="list-group-item"><a href="/web02/pages/dangxuat.php">Đăng xuất</a></li>
+                        <li class="list-group-item"><a href="/StudyWEb/pages/dangxuat.php">Đăng xuất</a></li>
                     <?php else : ?>
-                        <li class="list-group-item"><a href="/web02/pages/dangnhap.php">Đăng nhập</a></li>
+                        <li class="list-group-item"><a href="/StudyWEB/pages/dangnhap.php">Đăng nhập</a></li>
                     <?php endif ?>
 
                     
@@ -61,6 +67,8 @@ require_once __DIR__ . '/../dbconnect.php';
                     include('sanpham/them.php');
                 }else if($page == 'hinhsanpham_danhsach') {
                     include('hinhsanpham/danhsach.php');
+                }else if ($page == 'dashboard'){
+                    include('pages/dashboard.php');
                 }                
                 ?>
             </div><!-- /End content -->
@@ -105,7 +113,11 @@ require_once __DIR__ . '/../dbconnect.php';
     <?php elseif($page == 'sanpham_them') : ?>
         <script src="./../public/vendor/jqueryvalidation/jquery.validate.min.js"></script>
         <script src="./../public/vendor/jqueryvalidation/localization/messages_vi.min.js"></script>
-        <!-- <script src="public/js/sanpham/sanpham-validate.js"></script> -->
+        <!-- <script src="public/js/sanpham/sanpham-validate.js"></script> -->\
+        <?php elseif($page == 'dashboard') : ?>
+        <script src="./../public/vendor/Chart.js/Chart.min.js"></script>
+        <script src="./../public/js/pages/dashboard.js"></script>
+    
     <?php endif ?>
 </body>
 </html>
