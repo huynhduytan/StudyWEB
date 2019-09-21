@@ -6,7 +6,7 @@ require_once __DIR__.'/../../bootstrap.php';
 include_once(__DIR__.'/../../dbconnect.php');
 // 2. Chuẩn bị câu truy vấn $sql
 $sqlSoLuongSanPham = "select count(*) as SoLuong from `sanpham`";
-$sqlSoLuongKhachHang = "select count(*) as SoLuong from `khachhang`";
+
 
 // 3. Thực thi câu truy vấn SQL để lấy về dữ liệu
 $result = mysqli_query($conn, $sqlSoLuongSanPham);
@@ -20,21 +20,24 @@ while($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
         'SoLuong' => $row['SoLuong']
     );
 }
-$dataSoLuongKhachHang =[];
+$sqlSoLuongKhachHang = "select count(*) as SoLuong from khachhang";
+$result = mysqli_query($conn, $sqlSoLuongKhachHang);
+$dataSoLuongKhachHang = [];
 while($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
 {
     $dataSoLuongKhachHang[] = array(
         'SoLuong' => $row['SoLuong']
     );
 }
-$dataSoLuongDonDatHang =[];
+$sqlSoLuongDonHang = "select count(*) as SoLuong from dondathang";
+$result = mysqli_query($conn, $sqlSoLuongDonHang);
+$dataSoLuongDonHang = [];
 while($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
 {
-    $dataSoLuongDonDatHang[] = array(
+    $dataSoLuongDonHang[] = array(
         'SoLuong' => $row['SoLuong']
     );
 }
-
 
 ?>
 
@@ -50,9 +53,9 @@ while($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
                 </div>
             </div>
             <button class="btn btn-primary btn-sm form-control" id="refreshBaoCaoSanPham">Refresh dữ liệu</button>
-        </div> <!-- Tổng số mặt hàng -->
+        </div> 
         <div class="col-sm-6 col-lg-3">
-            <div class="card text-white bg-danger mb-2">
+            <div class="card text-white bg-primary mb-2">
                 <div class="card-body pb-0">
                     <div class="text-value" id="baocaoKhachHang_SoLuong">
                         <h1><?= $dataSoLuongKhachHang[0]['SoLuong'] ?></h1>
@@ -61,7 +64,19 @@ while($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
                 </div>
             </div>
             <button class="btn btn-primary btn-sm form-control" id="refreshBaoCaoKhachHang">Refresh dữ liệu</button>
-        </div> <!-- Tổng số mặt hàng -->
+        </div>
+        <div class="col-sm-6 col-lg-3">
+            <div class="card text-white bg-primary mb-2">
+                <div class="card-body pb-0">
+                    <div class="text-value" id="baocaoDonDatHang_SoLuong">
+                        <h1><?= $dataSoLuongDonHang[0]['SoLuong'] ?></h1>
+                    </div>
+                    <div>Tổng số don hang</div>
+                </div>
+            </div>
+            <button class="btn btn-primary btn-sm form-control" id="refreshBaoCaoDonDatHang">Refresh dữ liệu</button>
+        </div>              
+        
     </div><!-- row -->
 
     <!-- bieu do bao cao -->
@@ -69,6 +84,10 @@ while($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
         <div class="col-sm-6 col-lg-6">
             <canvas id="chartOfobjChartThongKeLoaiSanPham"></canvas>
             <button class="btn btn-outline-primary btn-sm form-control" id="refreshThongKeLoaiSanPham">Refresh dữ liệu</button>
+        </div> <!-- Tổng số mặt hàng -->
+        <div class="col-sm-6 col-lg-6">
+            <canvas id="chartOfobjChartThongKeKhachHang"></canvas>
+            <button class="btn btn-outline-primary btn-sm form-control" id="refreshThongKeKhachHang">Refresh dữ liệu</button>
         </div> <!-- Tổng số mặt hàng -->
     </div>    
 </div>
