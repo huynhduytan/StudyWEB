@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__ . '/../../dbconnect.php';
+require_once __DIR__ . '/../../bootstrap.php';
 // Lấy dữ liệu  sản phẩm
 $sqlSanPham = <<<EOT
     SELECT * FROM sanpham;
@@ -17,17 +18,24 @@ while ($row = mysqli_fetch_array($resultSanPham, MYSQLI_ASSOC)) {
 ?>
 
 <form name="frmHinhSanPham" id="frmHinhSanPham" method="post" action="" enctype="multipart/form-data">
-    Chọn hình ảnh :
-     <input type="file" name="hsp_tentaptin" id="hsp_tentaptin" /><br />
-   Chọn sản phẩm:
-    <select name="sp_ma" id="sp_ma">
-        <?php foreach($dataSanPham as $SanPham) : ?>
-        <option value="<?= $SanPham['sp_ma'] ?>"><?= $SanPham['sp_ten'] ?></option>
-        <?php endforeach; ?>
-    </select>
+    <div class="input-group mb-3">
+        <div class="custom-file">
+            <input type="file" class="custom-file-input" id="hsp_tentaptin" name="hsp_tentaptin">
+            <label class="custom-file-label" for="hsp-tentaptin" aria-describedby="hsp_tentaptin">Chọn hình ản</label>
+        </div>
+        <div class="input-group-append">
+            <span class="input-group-text" id="inputGroupFileAddon02">Upload</span>
+        </div>
+    </div>
+    <div>
+        Chọn sản phẩm:
+        <select name="sp_ma" id="sp_ma" class="form-control">
+            <?php foreach($dataSanPham as $sanPham) : ?>
+            <option  value="<?= $sanPham['sp_ma'] ?>"><?= $sanPham['sp_ten'] ?></option>
+            <?php endforeach; ?>
+        </select>
+    </div>    
     <br />
-    
-    
    
     <button name="btnLuu" id="btnLuu" class="btn btn-primary">
         <i class="fa fa-heartbeat" aria-hidden="true"></i> Lưu
@@ -38,7 +46,7 @@ if(isset($_POST['btnLuu'])) {
     $sp_ma = $_POST['sp_ma'];
     // Đường dẫn để chứa thư mục upload trên ứng dụng web của chúng ta. Các bạn có thể tùy chỉnh theo ý các bạn.
     // Ví dụ: các file upload sẽ được lưu vào thư mục ./../public/uploads
-    $upload_dir = "./../../public/uploads/";
+    $upload_dir = "./../public/uploads/";
     // Đối với mỗi file, sẽ có các thuộc tính như sau:
     
     // $_FILES['hsp_tentaptin']['name'] = '4707_sao-khuya.jpg';
@@ -73,6 +81,7 @@ if(isset($_POST['btnLuu'])) {
         echo 'File Uploaded';
         $sqlInsert="INSERT INTO hinhsanpham (hsp_tentaptin,sp_ma) VALUE ('$hsp_tentaptin', $sp_ma)";
         $result = mysqli_query($conn, $sqlInsert);
+        echo 'Đã thêm ảnh cho sản phẩm';
     }
 }
 

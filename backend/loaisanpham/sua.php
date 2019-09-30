@@ -1,12 +1,12 @@
 <?php
     require_once __DIR__ . '/../../dbconnect.php';
     $lsp_ma = $_GET['id'];
-    echo "Đây là ID cua " . $lsp_ma;
+    // echo "Đây là ID cua " . $lsp_ma;
     $sqlSelect = "SELECT * from loaisanpham where lsp_ma = $lsp_ma ";
     $resultSelect = mysqli_query($conn,$sqlSelect);
 
     $loaisanphamRow = mysqli_fetch_array($resultSelect, MYSQLI_ASSOC);
-    print_r($loaisanphamRow);
+    // print_r($loaisanphamRow);
 ?>
 <form name="frmsua" id="frmsua" method="POST" action="">
     Mã Sản Phẩm:<input type="text" name="lsp_ma" id="lsp_ma" readonly value="<?php echo $loaisanphamRow['lsp_ma'] ?>" class="form-control" /><br />
@@ -22,6 +22,6 @@
         $sqlUpdate = "UPDATE loaisanpham SET lsp_ten = N'$lsp_ten' , lsp_mota = N'$lsp_mota' WHERE lsp_ma ='$lsp_ma'; ";
         mysqli_query($conn,$sqlUpdate);
         echo ('Save Thành Công');
-        header("location:capnhatdanhsach.php");
+        header("location:danhsach.php");
     }
 ?>

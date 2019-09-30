@@ -1,7 +1,8 @@
 <?php
 require_once __DIR__ . '/../../dbconnect.php';
-// Here DOCS
-// End of Text
+require_once __DIR__ . '/../../bootstrap.php';
+
+
 $sql = <<<EOT
     SELECT hsp.hsp_ma, sp.sp_ten, sp.sp_gia, hsp.hsp_tentaptin
     FROM hinhsanpham hsp
@@ -29,7 +30,7 @@ while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
 }
 </style>
 
-<a href="/StudyWEB/hinhsanpham/them.php">Thêm Hình sản phẩm</a>
+<a href="/StudyWEB/backend/hinhsanpham/them.php">Thêm Hình sản phẩm</a>
 <table border="1">
     <tr>
         <th>Mã hình</th>
@@ -44,12 +45,14 @@ while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
         <td><?= $row['sp_ten']; ?></td>
         <td><?php echo $row['sp_gia']; ?></td>
         <td>
-            <img src="/StudyWEB/public/uploads/<?= $row['hsp_tentaptin']; ?>" class="img-thumbnail" />
+            <img src="./../public/uploads/<?= $row['hsp_tentaptin']; ?>" class="img-thumbnail" />
         </td>
         <td>
             <!-- Truyền dữ liệu GET trên URL, theo dạng ?KEY1=VALUE1&KEY2=VALUE2 -->
-            <a href="/StudyWEB/hinhsanpham/sua.php?hsp_ma=<?= $row['hsp_ma']; ?>">Sửa</a>
-            <a href="/StudyWEB/hinhsanpham/xoa.php?hsp_ma=<?= $row['hsp_ma']; ?>">Xóa</a>
+            <button class="btn btn-primary btn-edit " data-hsp-ma="<?= $row['hsp_ma']?>">
+                        <i class="fa fa-trash" aria-hidden="true"></i>&nbsp;Edit
+            </button>
+            
         </td>
     </tr>
     <?php endforeach; ?>

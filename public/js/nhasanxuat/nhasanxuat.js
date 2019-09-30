@@ -1,12 +1,10 @@
-// Yêu cầu JS đợi HTML vẽ (render) xong hết!
-// => Thực thi những đoạn code JS nằm bên trong hàm ready();
 $(document).ready(function () {
     // Tìm đối tượng đó, đăng ký sự kiện tương ứng
     $('.btn-delete').click(function (event) {
-        var lsp_ma = $(this).data('lsp-ma');
+        var nsx_ma = $(this).data('nsx-ma');
         debugger;
         Swal.fire({
-            title: 'Bạn co muốn xóa lsp_ma =' +lsp_ma,
+            title: 'Bạn co muốn xóa nsx_ma =' +nsx_ma,
             text: "You won't be able to revert this!",
             type: 'warning',
             showCancelButton: true,
@@ -20,7 +18,7 @@ $(document).ready(function () {
                 'Your file has been deleted.',
                 'success'
               )
-             window.location.href = "/StudyWEB/backend/loaisanpham/xoa.php?lsp_ma=" +lsp_ma; 
+             window.location.href = "/StudyWEB/backend/nhasanxuat/xoa.php?nsx_ma=" +nsx_ma; 
             }
           });
     });

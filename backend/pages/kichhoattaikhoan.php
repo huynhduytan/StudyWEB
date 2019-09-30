@@ -11,6 +11,6 @@ if(empty($khachhangRow)) {
     // Tìm được dòng khách hàng cần cập nhật
     $sqlUpdate = "UPDATE khachhang SET kh_trangthai = 1 WHERE kh_tendangnhap = '$kh_tendangnhap'";
     $resultUpdate = mysqli_query($conn, $sqlUpdate);
-    echo 'Tài khoản đã được kích hoạt. Click vào <a href="http://localhost:1000/StudyWEB/hinhsanpham/danhsach.php">ĐÂY</a> để đến trang chủ!';
+    echo 'Tài khoản đã được kích hoạt. Click vào <a href="http://localhost/StudyWEB/hinhsanpham/danhsach.php">ĐÂY</a> để đến trang chủ!';
 }
 ?>

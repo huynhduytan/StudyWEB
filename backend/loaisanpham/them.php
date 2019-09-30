@@ -13,7 +13,13 @@ while ($row = mysqli_fetch_array($resultLoaisanpham, MYSQLI_ASSOC)) {
 }
 ?>
 <form name="frmLoaisanpham" id="frmLoaisanpham" method="POST" action="">
-      Tên Loại Sản Phẩm :<input type="text" class="form-control" name="lsp_ten" id="lsp_ten" /><br>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-default">Tên loại sản phẩm</span>
+        </div>
+        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="lsp_ten" name="lsp_ten"><br/>
+    </div>
+      
       <input type="submit" name="btnthem" id="btnthem" value="Them" class="btn btn-primary"/>
 </form>
 <?php
@@ -22,6 +28,6 @@ if(isset($_POST['btnthem'])){
     $sqlUpdate = "INSERT INTO loaisanpham (lsp_ten) VALUES (N'$lsp_ten');";
     mysqli_query($conn,$sqlUpdate);
     echo('Thanh  Cong');
-    header("location:capnhatdanhsach.php");
+    header("location:/StudyWEB/backend/loaisanpham/danhsach.php");
 }
 ?>
