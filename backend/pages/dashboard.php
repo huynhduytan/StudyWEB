@@ -40,6 +40,7 @@ while($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
 }
 
 ?>
+<h2>Báo cáo</h2><pre/>
 
 <div class="container-fluid">
     <div class="row">
