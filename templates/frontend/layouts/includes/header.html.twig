@@ -1,10 +1,10 @@
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
     <div class="container">
-        <a class="navbar-brand" href="https://nentang.vn">Nền tảng</a>
+        <a class="navbar-brand" href="https://nentang.vn">SALOMON</a>
         <div class="navbar-collapse collapse" id="navbarCollapse" style="">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="/StudyWEB/">Trang chủ <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="/StudyWEB/frontend/pages">Trang chủ <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/StudyWEB/backend">Quản trị</a>
@@ -13,10 +13,10 @@
                     <a class="nav-link" href="/StudyWEB/frontend/sanpham/danhsach.php">Sản phẩm</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/StudyWEB/frontend/pages/gioithieu">Giới thiệu</a>
+                    <a class="nav-link" href="/StudyWEB/frontend/pages/gioithieu.php">Giới thiệu</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/StudyWEB/frontend/pages/lienhe">Liên hệ</a>
+                    <a class="nav-link" href="/StudyWEB/frontend/pages/lienhe.php">Liên hệ</a>
                 </li>
             </ul>
             <form class="form-inline mt-2 mt-md-0" method="get" action="/StudyWEB/frontend/pages/timkiem">
@@ -26,7 +26,16 @@
         </div>
         <ul class="navbar-nav px-3">
             <li class="nav-item text-nowrap">
-                <a class="nav-link" href="/StudyWEB/frontend/thanhtoan/giohang">Giỏ hàng</a>
+                <a class="nav-link" href="/StudyWEB/frontend/thanhtoan/giohang.php">Giỏ hàng</a>
+            </li>
+            <li class="nav-item text-nowrap">
+                {% if session['username'] %}
+                <!-- Nếu đã đăng nhập thì hiển thị nút Đăng xuất -->
+                <a class="nav-link" href="/StudyWEB/frontend/pages/logout.php">Đăng xuất</a>
+                {% else %}
+                <!-- Nếu chưa đăng nhập thì hiển thị nút Đăng nhập -->
+                <a class="nav-link" href="/StudyWEB/frontend/pages/login.php">Đăng nhập</a>
+                {% endif %}
             </li>
         </ul>
     </div>

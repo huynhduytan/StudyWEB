@@ -40,7 +40,9 @@ while($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
 }
 
 ?>
-<h2>Báo cáo</h2><pre/>
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+<h1 class="h2">Báo cáo</h1>
+</div>
 
 <div class="container-fluid">
     <div class="row">
@@ -56,39 +58,51 @@ while($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
             <button class="btn btn-primary btn-sm form-control" id="refreshBaoCaoSanPham">Refresh dữ liệu</button>
         </div> 
         <div class="col-sm-6 col-lg-3">
-            <div class="card text-white bg-primary mb-2">
+            <div class="card text-white bg-success mb-2">
                 <div class="card-body pb-0">
                     <div class="text-value" id="baocaoKhachHang_SoLuong">
                         <h1><?= $dataSoLuongKhachHang[0]['SoLuong'] ?></h1>
                     </div>
-                    <div>Tổng số khach hang</div>
+                    <div>Tổng số khách hàng</div>
                 </div>
             </div>
-            <button class="btn btn-primary btn-sm form-control" id="refreshBaoCaoKhachHang">Refresh dữ liệu</button>
+            <button class="btn btn-success btn-sm form-control" id="refreshBaoCaoKhachHang">Refresh dữ liệu</button>
         </div>
         <div class="col-sm-6 col-lg-3">
-            <div class="card text-white bg-primary mb-2">
+            <div class="card text-white bg-warning mb-2">
                 <div class="card-body pb-0">
                     <div class="text-value" id="baocaoDonDatHang_SoLuong">
                         <h1><?= $dataSoLuongDonHang[0]['SoLuong'] ?></h1>
                     </div>
-                    <div>Tổng số don hang</div>
+                    <div>Tổng số đơn hàng</div>
                 </div>
             </div>
-            <button class="btn btn-primary btn-sm form-control" id="refreshBaoCaoDonDatHang">Refresh dữ liệu</button>
+            <button class="btn btn-warning btn-sm form-control" id="refreshBaoCaoDonDatHang">Refresh dữ liệu</button>
         </div>              
         
     </div><!-- row -->
 
     <!-- bieu do bao cao -->
     <div class="row">
+       <!-- Biểu đồ thống kê loại sản phẩm -->
         <div class="col-sm-6 col-lg-6">
             <canvas id="chartOfobjChartThongKeLoaiSanPham"></canvas>
             <button class="btn btn-outline-primary btn-sm form-control" id="refreshThongKeLoaiSanPham">Refresh dữ liệu</button>
-        </div> <!-- Tổng số mặt hàng -->
+        </div><!-- col -->
+
+        <!-- Biểu đồ thống kê sản phẩm bán chạy nhất -->
         <div class="col-sm-6 col-lg-6">
-            <canvas id="chartOfobjChartThongKeKhachHang"></canvas>
-            <button class="btn btn-outline-primary btn-sm form-control" id="refreshThongKeKhachHang">Refresh dữ liệu</button>
-        </div> <!-- Tổng số mặt hàng -->
-    </div>    
+            <canvas id="chartOfobjChartThongKeTopLoaiSanPham"></canvas>
+            <button class="btn btn-outline-primary btn-sm form-control" id="refreshThongKeTopSanPhamBanChayNhat">Refresh dữ
+                liệu</button>
+        </div><!-- col -->
+        <div class="row">
+        <!-- Biểu đồ thống kê doanh thu theo ngày -->
+        <div class="col-sm-12 col-lg-12">
+            <canvas id="chartOfobjChartThongKeDoanhThu"></canvas>
+            <button class="btn btn-outline-primary btn-sm form-control" id="refreshThongKeDoanhThu">Refresh dữ
+                liệu</button>
+        </div><!-- col -->
+    </div><!-- row -->
+
 </div>

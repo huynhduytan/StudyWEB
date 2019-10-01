@@ -34,7 +34,7 @@
   }
   
   .sidebar-sticky>ul>li>a>i {
-    color: #60acc4;
+    color: #007bff;
     background: #373838;
     text-shadow:0px 0px 10px rgba(35, 79, 92, 0.5);
   }
@@ -93,19 +93,20 @@
     
     .sidebar .nav-link {
       font-weight: 500;
-      color: rgb(255, 253, 253);
+      columns: #333;
+      color: #333
     }
     
     .sidebar .nav-link .feather {
       margin-right: 4px;
-      color: #999;
+      color:#007bff;
     }
     
     .sidebar .nav-link.active {
-      color: #b6b3b3;
+      color: #007bff;
     }
     .sidebar .nav-link:hover {
-      color: #ffffff;
+      color: #333;
     }
     
     .sidebar .nav-link:hover .feather,
@@ -151,7 +152,7 @@
     }
     
     .form-control-dark {
-      color: #fff;
+      color: rgb(26, 24, 24);
       background-color: rgba(255, 255, 255, .1);
       border-color: rgba(255, 255, 255, .1);
     }

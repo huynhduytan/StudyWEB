@@ -20,7 +20,7 @@ $page = isset($_GET['page']) ? $_GET['page'] : 'dashboard';
 </head>
 <body class="d-flex flex-column h-100">
 <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
-        <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Nền tảng</a>
+        <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="/StudyWEB/frontend/pages">SALOMON</a>
         <input class="form-control form-control-dark w-100" type="text" placeholder="Tìm kiếm" aria-label="Search">
         <ul class="navbar-nav px-3">
             <li class="nav-item text-nowrap">
@@ -30,32 +30,33 @@ $page = isset($_GET['page']) ? $_GET['page'] : 'dashboard';
 </nav>
 <div class="container-fluid">
         <div class="row"  id="main-content">
-        <nav class="col-md-2 d-none d-md-block bg-dark sidebar">
+        <nav class="col-md-2 d-none d-md-block bg-light sidebar">
         <div class="sidebar-sticky">
             <ul class="nav flex-column">
-                <!-- Bảng Tin -->
+                <!-- Báo cáo -->
                 <li class="nav-item">
                     <a class="nav-link active " href="?page=dashboard"  aria-expanded="true">
-                        <i class="fa fa-bar-chart" aria-hidden="true"></i>
-                        <span>Báo cáo</span>
+                    <i class="fa fa-tachometer" aria-hidden="true"></i>
+                        <span style="color:#333">Báo cáo</span>
                     </a>
                 </li>
-                <!-- End menu Bảng Tin --> 
+                <!-- End menu Báo cáo --> 
 
                 <!-- Loai San Pham -->
                 <li class="nav-item">
                     <a href="#loaisanpham" data-toggle="collapse" aria-expanded="false" class="nav-link active dropdown-toggle">
-                        <i class="fa fa-align-right" aria-hidden="true"></i> <span> Loai san pham</span>
+                        <i class="fa fa-align-right" aria-hidden="true"></i> 
+                        <span style="color:#333"> Loai san pham</span>
                     </a>
                     <ul class="collapse" id="loaisanpham" >
                         <li class="nav-item">
-                            <a class="nav-link" href="?page=loaisanpham_danhsach">
+                            <a class="nav-link" href="?page=loaisanpham_danhsach" style="color:#333">
                                 
                                 Danh sách
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="?page=loaisanpham_them">
+                            <a class="nav-link" href="?page=loaisanpham_them" style="color:#333">
                                 
                                 Thêm mới
                             </a>
@@ -67,17 +68,17 @@ $page = isset($_GET['page']) ? $_GET['page'] : 'dashboard';
                 <!-- Sản Phẩm -->
                 <li class="nav-item">
                         <a href="#sanpham" data-toggle="collapse" aria-expanded="false" class="nav-link active dropdown-toggle">
-                            <i class="fa fa-product-hunt" aria-hidden="true"></i> Sản Phẩm
+                            <i class="fa fa-product-hunt" aria-hidden="true"></i> <span style="color:#333">Sản Phẩm</span>
                         </a>
                         <ul class="collapse" id="sanpham">
                             <li class="nav-item">
-                                <a class="nav-link" href="?page=sanpham_danhsach">
+                                <a class="nav-link" href="?page=sanpham_danhsach" style="color:#333">
                                     <span data-feather="list"></span>
                                     Danh sách
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="?page=sanpham_them">
+                                <a class="nav-link" href="?page=sanpham_them" style="color:#333">
                                     <span data-feather="plus"></span>
                                     Thêm mới
                                 </a>
@@ -88,18 +89,19 @@ $page = isset($_GET['page']) ? $_GET['page'] : 'dashboard';
 
                 <!-- Hình Ảnh -->
                 <li class="nav-item">
-                        <a href="#hinhsanpham" data-toggle="collapse" aria-expanded="false" class="nav-link active dropdown-toggle">
-                            <i class="fa fa-file-image-o" aria-hidden="true"></i> Hình Ảnh
+                        <a   href="#hinhsanpham" data-toggle="collapse" aria-expanded="false" class="nav-link active dropdown-toggle">
+                        <i class="fa fa-picture-o" aria-hidden="true"></i> 
+                            <span style="color:#333">Hình Ảnh</span>
                         </a>
                         <ul class="collapse" id="hinhsanpham">
                             <li class="nav-item">
-                                <a class="nav-link" href="?page=hinhsanpham_danhsach">
+                                <a class="nav-link" href="?page=hinhsanpham_danhsach" style="color:#333">
                                     <span data-feather="list"></span>
                                     Danh sách
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="?page=hinhsanpham_them">
+                                <a class="nav-link" href="?page=hinhsanpham_them" style="color:#333">
                                     <span data-feather="plus"></span>
                                     Thêm mới
                                 </a>
@@ -111,18 +113,19 @@ $page = isset($_GET['page']) ? $_GET['page'] : 'dashboard';
                 
                 <!-- Nhà Sản Xuất -->
                 <li class="nav-item">
-                    <a href="#nsx" data-toggle="collapse" aria-expanded="true" class="nav-link active dropdown-toggle">
-                        <i class="fa fa-university" aria-hidden="true"></i> Nhà Sản Xuất
+                    <a  href="#nsx" data-toggle="collapse" aria-expanded="true" class="nav-link active dropdown-toggle" >
+                    <i class="fa fa-handshake-o" aria-hidden="true"></i>
+                         <span style="color:#333">Nhà Sản Xuất<span>
                     </a>
                     <ul class="collapse" id="nsx">
                         <li class="nav-item">
-                            <a class="nav-link" href="?page=nhasanxuat_danhsach">
+                            <a class="nav-link" href="?page=nhasanxuat_danhsach" style="color:#333">
                                 <span data-feather="list"></span>
                                 Danh sách
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="?page=nhasanxuat_them">
+                            <a class="nav-link" href="?page=nhasanxuat_them" style="color:#333">
                                 <span data-feather="plus"></span>
                                 Thêm mới
                             </a>
@@ -130,6 +133,43 @@ $page = isset($_GET['page']) ? $_GET['page'] : 'dashboard';
                     </ul>
                 </li>
                     <!-- End menu  Nhà Sản Xuất  -->
+                    <!-- Đơn đặt hàng -->
+                    <li class="nav-item">
+                    <a  href="#dondathang" data-toggle="collapse" aria-expanded="true" class="nav-link active dropdown-toggle" >
+                    <i class="fa fa-calendar-check-o" aria-hidden="true"></i>
+                         <span style="color:#333">Đơn đặt hàng<span>
+                    </a>
+                    <ul class="collapse" id="nsx">
+                        <li class="nav-item">
+                            <a class="nav-link" href="?page=dondathang_danhsach" style="color:#333">
+                                <span data-feather="list"></span>
+                                Danh sách
+                            </a>
+                        </li>
+                    </ul>
+                </li> 
+                   <!-- End đơn hàng -->
+                   <!-- Khuyến mãi -->
+               <li class="nav-item">
+                    <a  href="#khuyenmai" data-toggle="collapse" aria-expanded="true" class="nav-link active dropdown-toggle" >
+                    <i class="fa fa-heart" aria-hidden="true"></i>
+                         <span style="color:#333">Khuyến mãi<span>
+                    </a>
+                    <ul class="collapse" id="nsx">
+                        <li class="nav-item">
+                            <a class="nav-link" href="?page=khuyenmai_danhsach" style="color:#333">
+                                <span data-feather="list"></span>
+                                Danh sách
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="?page=khuyenmai_them" style="color:#333">
+                                <span data-feather="plus"></span>
+                                Thêm mới
+                            </a>
+                        </li>
+                    </ul>
+                </li>   
             </ul>
         </div>
     </nav>

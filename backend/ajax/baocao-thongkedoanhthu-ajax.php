@@ -6,9 +6,10 @@ require_once __DIR__.'/../../bootstrap.php';
 include_once(__DIR__.'/../../dbconnect.php');
 // 2. Chuẩn bị câu truy vấn $sql
 $sql = <<<EOT
-    SELECT  COUNT(*) AS SoLuong
-    FROM `khachhang` 
-    
+    SELECT DATE(ddh.dh_ngaylap) as NgayTaoDonHang, SUM(sp_dh_soluong * sp_dh_dongia) AS TongThanhTien
+    FROM `dondathang` ddh
+    JOIN `sanpham_dondathang` spddh ON ddh.dh_ma = spddh.dh_ma
+    GROUP BY DATE(ddh.dh_ngaylap)
 EOT;
 // 3. Thực thi câu truy vấn SQL để lấy về dữ liệu
 $result = mysqli_query($conn, $sql);
@@ -19,8 +20,8 @@ $data = [];
 while($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
 {
     $data[] = array(
-        
-        'SoLuong' => $row['SoLuong'] 
+        'NgayTaoDonHang' => date('d/m/Y', strtotime($row['NgayTaoDonHang'])),
+        'TongThanhTien' => $row['TongThanhTien'] 
     );
 }
 // Dữ liệu JSON, array PHP -> JSON 
